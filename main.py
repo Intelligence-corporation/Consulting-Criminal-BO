@@ -3,6 +3,7 @@ from os import name
 from utl.lay import colour as cl
 from utl.aqv import onlyBool, readint, titleFor, boolTitle, bool, boolNumber
 from utl.objects import menu, dataBase, dateBO, people, typeAssistance
+import os
 
 print('\n\033[35mHello, World.\033[m\n')
 
@@ -10,6 +11,7 @@ option = 0
 
 okMain = True
 while okMain:
+    os.system('cls')
     titleFor('BO', 30)
     for c in range(0, len(menu)):
         print(f'{cl["b"]}{c + 1}{cl["limit"]} - {menu[c]}')
@@ -22,6 +24,7 @@ while okMain:
 
         ok = True
         while ok:
+            os.system('cls')
             titleFor('Database', 30)
 
             if len(dataBase) == 0:
@@ -30,29 +33,41 @@ while okMain:
 
             else:
                 for c in range(0, len(dataBase)):
-                    print(f'{cl["b"]}{c}{cl["limit"]} - {dataBase[c]["offender"]}')
+                    print(f'{cl["b"]}{c + 1}{cl["limit"]} - {dataBase[c]["offender"]}')
                 
                 ok = True
                 while ok:
                     try:
+                        print('\nType "0" to back')
                         option = readint('See people: ')
-                        titleFor('Data', 50)
-                        print(f'\033[35m{dataBase[option]["date"]["dateDay"]}/{dataBase[option]["date"]["dateMonth"]}/{dataBase[option]["date"]["dateYear"]}\033[m - Time: \033[35m{dataBase[option]["time"]}\033[m')
-                        print(f'Infrator:{cl["p"]} {dataBase[option]["offender"]}{cl["limit"]}')
-                        print(f'Endereco/local:{cl["p"]} {dataBase[option]["adress"]}{cl["limit"]}')
-                        print(f'Ponto de Referência:{cl["p"]} {dataBase[option]["reference"]}{cl["limit"]}')
-                        print(f'POLICE:{cl["p"]} {dataBase[option]["police"]}{cl["limit"]}')
-                        print(f'Acionamento por:{cl["p"]} {dataBase[option]["trigger"]}{cl["limit"]}')
-                        print(f'Tipo de Atendimento:{cl["p"]} {dataBase[option]["type"]}{cl["limit"]}')
+
+                        if option == 0:
+                            ok = False
+                        
+                        else:
+                            titleFor('Data', 50)
+                            print(f'\033[35m{dataBase[option - 1]["date"]["dateDay"]}/{dataBase[option - 1]["date"]["dateMonth"]}/{dataBase[option - 1]["date"]["dateYear"]}\033[m - Time: \033[35m{dataBase[option - 1]["time"]}\033[m')
+                            print(f'Infrator:{cl["p"]} {dataBase[option - 1]["offender"]}{cl["limit"]}')
+                            print(f'Endereco/local:{cl["p"]} {dataBase[option - 1]["adress"]}{cl["limit"]}')
+                            print(f'Ponto de Referência:{cl["p"]} {dataBase[option - 1]["reference"]}{cl["limit"]}')
+                            print(f'POLICE:{cl["p"]} {dataBase[option - 1]["police"]}{cl["limit"]}')
+                            print(f'Acionamento por:{cl["p"]} {dataBase[option - 1]["trigger"]}{cl["limit"]}')
+                            print(f'Tipo de Atendimento:{cl["p"]} {dataBase[option - 1]["type"]}{cl["limit"]}')
                     
                     except Exception as error:
                         print(f'{cl["r"]}{error.__class__}. Try again.{cl["limit"]}')
                     
                     finally:
-                        ok = False
+                        back = 0
+                        back = readint(f'\nType {cl["p"]}0{cl["limit"]} to back: ')
+                        if back == 0:
+                            ok = False
+                        else:
+                            print('Try again.')
 
     # add people
     elif option == 2:
+        os.system('cls')
         date = datetime.datetime.now()
         answer = ''
         answer = onlyBool(f'It is ok? {date.day}/{date.month}/{date.year}\n[ {cl["b"]}Y{cl["limit"]} ] | [ {cl["r"]}N{cl["limit"]} ]: ').title()[0]
@@ -129,10 +144,9 @@ while okMain:
     
     # search people by people METADATA
     elif option == 3:
-
         ok = True
         while ok:
-
+            os.system('cls')
             titleFor('Keyword', 30)
 
             listKeyword = ['Date', 'Offender', 'POLICE', 'Back']
@@ -215,6 +229,7 @@ while okMain:
 
     # BIG DATA
     elif option == 4:
+        os.system('cls')
         if len(dataBase) == 0:
             print('Empty')
 
@@ -222,6 +237,7 @@ while okMain:
             print(dataBase)
 
     elif option == 5:
+        os.system('cls')
         break
     
     else:
