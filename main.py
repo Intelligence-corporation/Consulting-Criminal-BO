@@ -176,6 +176,15 @@ while okMain:
                         print(f'POLICE:{cl["p"]} {dataBase[index]["police"]}{cl["limit"]}')
                         print(f'Acionamento por:{cl["p"]} {dataBase[index]["trigger"]}{cl["limit"]}')
                         print(f'Tipo de Atendimento:{cl["p"]} {dataBase[index]["type"]}{cl["limit"]}')
+                        ok = True
+                        while ok:
+                            back = 0
+                            back = readint(f'Type {cl["p"]}0{cl["limit"]} to back: ')
+                            if back == 0:
+                                ok = False
+                            else:
+                                print('Try again.')
+                        
                     
                 if counter == 0:
                     print('\nNothing Found.\n')
@@ -198,6 +207,15 @@ while okMain:
                         print(f'POLICE:{cl["p"]} {dataBase[index]["police"]}{cl["limit"]}')
                         print(f'Acionamento por:{cl["p"]} {dataBase[index]["trigger"]}{cl["limit"]}')
                         print(f'Tipo de Atendimento:{cl["p"]} {dataBase[index]["type"]}{cl["limit"]}')
+                        ok = True
+                        while ok:
+                            print(dataBase)
+                            back = 0
+                            back = readint(f'Type {cl["p"]}0{cl["limit"]} to back: ')
+                            if back == 0:
+                                ok = False
+                            else:
+                                print('Try again.')
                     
                 if counter == 0:
                     print('\nNothing Found.\n')
@@ -220,6 +238,15 @@ while okMain:
                         print(f'POLICE:{cl["p"]} {dataBase[index]["police"]}{cl["limit"]}')
                         print(f'Acionamento por:{cl["p"]} {dataBase[index]["trigger"]}{cl["limit"]}')
                         print(f'Tipo de Atendimento:{cl["p"]} {dataBase[index]["type"]}{cl["limit"]}')
+                        ok = True
+                        while ok:
+                            print(dataBase)
+                            back = 0
+                            back = readint(f'Type {cl["p"]}0{cl["limit"]} to back: ')
+                            if back == 0:
+                                ok = False
+                            else:
+                                print('Try again.')
 
             elif option == 4:
                 ok = False
@@ -234,7 +261,15 @@ while okMain:
             print('Empty')
 
         else:
-            print(dataBase)
+            ok = True
+            while ok:
+                print(dataBase)
+                back = 0
+                back = readint(f'Type {cl["p"]}0{cl["limit"]} to back: ')
+                if back == 0:
+                    ok = False
+                else:
+                    print('Try again.')
 
     elif option == 5:
         os.system('cls')
