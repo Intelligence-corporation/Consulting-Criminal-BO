@@ -102,7 +102,7 @@ while okMain:
             while ok:
                 dateBO["dateYear"] = boolNumber('Year: ')
 
-                if dateBO["dateYear"] < 2000 or dateBO["dateYear"] > date.year:
+                if dateBO["dateYear"] < 1500 or dateBO["dateYear"] > date.year:
                     print(f'{cl["r"]}Please, type a valid year.{cl["limit"]}')
                     continue
 
