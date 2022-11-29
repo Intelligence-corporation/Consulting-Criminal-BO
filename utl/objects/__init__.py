@@ -4,7 +4,7 @@ people = dict()
 dateBO = dict()
 menu = ['Database', 'Add Occurrence', 'Metadata', 'Big Data','Exit']
 
-typeAssistance = ['Apoio aos eventos municipais', 'Apoio as secretarias',
+typeAssistance = ['Apoio aos eventos', 'Apoio as secretarias',
  'Mediação de conflitos', 
  'Averiguação de consumo de entorpecente em logradouros públicos',
 'Abordagem por atitude suspeita', 'Intervenção para prevenção de ato infracional',
